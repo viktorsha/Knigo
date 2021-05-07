@@ -1,0 +1,89 @@
+﻿@{
+    ViewData["Title"] = "Каталог книг";
+}
+<h2>Каталог книг</h2>
+@{
+    <div class="row" style="margin-left:10px;">
+        <form class="d-flex" method="post" action="~/Books/Books/SearchResult">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search">
+            <input type="submit" value="Поиск" />
+        </form>
+    </div>
+    <div class="album py-5 bg-light">
+        <div class="container">
+
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                @if (Model.Count() != 1)
+                {
+                    @foreach (var book in Model.allBooks)
+                    {
+
+                        <div class="col-lg-4">
+                            <img src="@book.Img.ToString()" alt="Обложка книги" style="border-radius:50%; width:200px; height:200px">
+                            <h3>
+
+                                "@book.Name"
+                                @book.Author.AuthorName
+                            </h3>
+                            <h4>Оценка: @book.Rank.StarsAmount звезд</h4>
+                            <h4>Статус прочтения: @book.Status.StatusName</h4>
+                            <h5 class="card-title pricing-card-title">@book.Price.ToString() р.<small class="text-muted fw-light"></small></h5>
+                            <p><a class="btn btn-secondary" href="/Books/Books/List/@book.Id">Подробнее »</a></p>
+                        </div>
+                    }
+                }
+                else
+                {
+                    var book = Model.bookById;
+
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm">
+
+                                <img src="@book.Img.ToString()" alt="Обложка книги" style="border-radius:50%; width:400px; height:400px">
+                            </div>
+                            <div class="col-sm">
+                                <h3>
+                                    "@book.Name" @book.Author.AuthorName
+                                </h3>
+                                <h4>Описание: @book.Annotation</h4>
+                                <form method="post" action="~/Books/Books/Save/@book.Id">
+                                    <h4>Оценка: <input name="rank" type="number" value="@book.Rank.StarsAmount" min="0" max="5" /> звезд</h4>
+
+                                    <h5>
+                                        Статус прочтения:
+                                        <select name="status">
+                                            @foreach (var item in ViewBag.Status.allStatuses)
+                                            {
+                                                if (book.Status.StatusName == item.StatusName)
+                                                {
+                                                    <option selected="selected">@book.Status.StatusName</option>
+
+                                                }
+                                                else
+                                                {
+                                                    <option value="@item.StatusName">@item.StatusName</option>
+
+                                                }
+                                            }
+                                        </select>
+                                    </h5>
+                                    <h5 class="card-title pricing-card-title">@book.Price.ToString() р.<small class="text-muted fw-light"></small></h5>
+                                    <input type="submit" value="Сохранить изменения" />
+                                </form>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+
+                }
+
+
+            </div>
+        </div>
+    </div>
+}

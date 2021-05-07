@@ -1,0 +1,32 @@
+﻿
+<h2>Каталог книг</h2>
+@{
+    <div class="row">
+        
+    </div>
+    <div class="album py-5 bg-light">
+        <div class="container">
+
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+
+                
+                    @foreach (var book in Model.allBooks)
+                    {
+
+                        <div class="col-lg-4">
+                            <img src="@book.Img.ToString()" alt="Обложка книги" style="border-radius:50%; width:200px; height:200px">                            
+                            <h3>
+
+                                "@book.Name"
+                                @book.Author.AuthorName
+                            </h3>
+                            <h4>Оценка: @book.Rank.StarsAmount звезд</h4>
+                            <h4>Статус прочтения: @book.Status.StatusName</h4>
+                            <h5 class="card-title pricing-card-title">@book.Price.ToString() р.<small class="text-muted fw-light"></small></h5>
+                            <p><a class="btn btn-secondary" href="/Books/Books/List/@book.Id">Подробнее »</a></p>
+                        </div>
+                    }
+            </div>
+        </div>
+    </div>
+}

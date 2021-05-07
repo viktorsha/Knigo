@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Knigo.Data.Controllers.BooksControllerShakunVA" Collapsed="true">
+    <Position X="0.5" Y="2.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AQAAAICAAAAAIEgAAAAAAAAgAAAABgAAAAAgAAAAAAI=</HashCode>
+      <FileName>Areas\Books\Controllers\BooksControllerShakunVA.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_books" />
+      <Field Name="_booksAuthor" />
+      <Field Name="_booksPublisher" />
+      <Field Name="_booksCategory" />
+      <Field Name="_booksRank" />
+      <Field Name="_booksStatus" />
+      <Field Name="obj" />
+      <Field Name="stat" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Knigo.Data.Models.AuthorShakunVA" Collapsed="true">
+    <Position X="6.5" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAACACAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>Data\Models\AuthorShakunVA.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Knigo.Data.Models.BookShakunVA" Collapsed="true">
+    <Position X="7" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAADAAAcBQAAAgAAiAAAgAQAAQAAAAAAABAAIAAACAA=</HashCode>
+      <FileName>Data\Models\BookShakunVA.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Author" />
+      <Property Name="Category" />
+      <Property Name="Publisher" />
+      <Property Name="Rank" />
+      <Property Name="Status" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Knigo.Data.Models.PublisherShakunVA" Collapsed="true">
+    <Position X="9.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Models\PublisherShakunVA.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Knigo.Data.Models.RankShakunVA" Collapsed="true">
+    <Position X="5.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Models\RankShakunVA.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Knigo.Data.Models.StatusShakunVA" Collapsed="true">
+    <Position X="7" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Models\StatusShakunVA.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Knigo.Data.Repository.AuthorRepositoryShakunVA" Collapsed="true">
+    <Position X="11" Y="3.5" Width="2.25" />
+    <AssociationLine Name="appDBContent" Type="Knigo.Data.AppDBContentShakunVA" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="13.25" Y="3.781" />
+        <Point X="15.312" Y="3.781" />
+        <Point X="15.312" Y="3.191" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACBAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Repository\AuthorRepositoryShakunVA.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="appDBContent" />
+      <Property Name="GetAuthors" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Knigo.Data.Repository.BookRepositoryShakunVA" Collapsed="true">
+    <Position X="11" Y="0.5" Width="2.25" />
+    <AssociationLine Name="appDBContent" Type="Knigo.Data.AppDBContentShakunVA" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="13.25" Y="0.781" />
+        <Point X="17.25" Y="0.781" />
+        <Point X="17.25" Y="2.5" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAACAAgAACAAAAAAAgCAQAABAAAAAABAAAAA=</HashCode>
+      <FileName>Data\Repository\BookRepositoryShakunVA.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="appDBContent" />
+      <Property Name="Books" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Knigo.Data.Repository.CategoryRepositoryShakunVA" Collapsed="true">
+    <Position X="11" Y="5.5" Width="2.25" />
+    <AssociationLine Name="appDBContent" Type="Knigo.Data.AppDBContentShakunVA" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="13.25" Y="5.781" />
+        <Point X="17.875" Y="5.781" />
+        <Point X="17.875" Y="2.875" />
+        <Point X="17.5" Y="2.875" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAASAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Repository\CategoryRepositoryShakunVA.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="appDBContent" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Knigo.Data.Repository.PublisherRepositoryShakunVA" Collapsed="true">
+    <Position X="11" Y="4.5" Width="2.25" />
+    <AssociationLine Name="appDBContent" Type="Knigo.Data.AppDBContentShakunVA" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="13.25" Y="4.781" />
+        <Point X="16.938" Y="4.781" />
+        <Point X="16.938" Y="3.191" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Repository\PublisherRepositoryShakunVA.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="appDBContent" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Knigo.Data.Repository.RankRepositoryShakunVA" Collapsed="true">
+    <Position X="11" Y="1.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAACAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Repository\RankRepositoryShakunVA.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="appDBContent" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Knigo.Data.Repository.StatusRepositoryShakunVA" Collapsed="true">
+    <Position X="11" Y="2.5" Width="2.25" />
+    <AssociationLine Name="appDBContent" Type="Knigo.Data.AppDBContentShakunVA" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="13.25" Y="2.781" />
+        <Point X="13.625" Y="2.781" />
+        <Point X="13.625" Y="2.875" />
+        <Point X="15" Y="2.875" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Repository\StatusRepositoryShakunVA.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="appDBContent" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Knigo.Data.AppDBContentShakunVA" Collapsed="true">
+    <Position X="15" Y="2.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAEAAAAAABAiAAAAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Data\AppDBContentShakunVA.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Knigo.ViewModels.BooksListViewModelShakunVA" Collapsed="true">
+    <Position X="5.75" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAAAAgAAAAQAQAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>ViewModels\BooksListViewModelShakunVA.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="allBooks" />
+      <Property Name="bookById" />
+      <Property Name="currentCategory" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Knigo.ViewModels.StatusListViewModel" Collapsed="true">
+    <Position X="0.5" Y="5.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACEAAAAAAAA=</HashCode>
+      <FileName>ViewModels\StatusListViewModel.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="allStatuses" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Knigo.Data.Models.Category" Collapsed="true">
+    <Position X="8.25" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACgAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Models\CategoryShakunVA.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Collections.Generic.List&lt;T&gt;" Collapsed="true">
+    <Position X="3" Y="7" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="System.String" Collapsed="true">
+    <Position X="7" Y="2.75" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Microsoft.AspNetCore.Mvc.Controller" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="Knigo.Data.Interfaces.IBooksShakunVA" Collapsed="true">
+    <Position X="3.5" Y="1" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAACAAgAACAAAAAAAgAAQAABAAAAAABAAAAA=</HashCode>
+      <FileName>Data\Interfaces\IBooksShakunVA.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Knigo.Data.Interfaces.IBooksAuthorShakunVA" Collapsed="true">
+    <Position X="3.5" Y="1.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Interfaces\IBooksAuthorShakunVA.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Knigo.Data.Interfaces.IBooksCategoryShakunVA" Collapsed="true">
+    <Position X="3.5" Y="4.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Interfaces\IBooksCategoryShakunVA.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Knigo.Data.Interfaces.IBooksPublisherShakunVA" Collapsed="true">
+    <Position X="3.5" Y="3.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Interfaces\IBooksPublisherShakunVA.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Knigo.Data.Interfaces.IBooksRankShakunVA" Collapsed="true">
+    <Position X="3.5" Y="2.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Interfaces\IBooksRankShakunVA.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Knigo.Data.Interfaces.IBooksStatusShakunVA" Collapsed="true">
+    <Position X="3.5" Y="4" Width="2" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Interfaces\IBooksStatusShakunVA.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="System.Collections.Generic.IEnumerable&lt;T&gt;" Collapsed="true">
+    <Position X="8.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
