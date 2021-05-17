@@ -4,22 +4,122 @@
 <h2>Каталог книг</h2>
 @{
     <div class="row" style="margin-left:10px;">
-        <form class="d-flex" method="post" action="~/Books/Books/SearchResult">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search">
-            <input type="submit" value="Поиск" />
-        </form>
+        <div class="col-sm">
+            <form class="d-flex" method="post" action="~/Books/Books/SearchResult">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search">
+                <input type="submit" value="Поиск" />
+            </form>
+       
+            <form method="get" action="~/Books/Books/List">
+                <div class="container">
+                    <div class="row" style="align-content:center">
+                        <div class="col-sm">
+                            <b>Цена, р.</b>
+                            <table style="width:50%;">
+                                <tr>
+                                    <td>
+                                        <input type="number" name="[0]" value="not used" width="10" placeholder="От" />
+                                    </td>
+                                    <td>
+                                        <input type="number" name="[1]" value="not used" width="10" placeholder="До" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <hr />
+                        <div class="col-sm">
+                            <b>Автор:</b>
+                            <select name="[2]">
+                                @foreach (var item in ViewBag.Author.allAuthors)
+                                {
+                                    <option value="@item.AuthorName">@item.AuthorName</option>
+                                }
+                                <option selected="selected" value="not used">Не выбрано</option>
+                            </select>
+                        </div>
+                        <hr />
+                        <div class="col-sm">
+                            <b>Статус:</b>
+                            <select name="[3]">
+                                @foreach (var item in ViewBag.Status.allStatuses)
+                                {
+                                    <option value="@item.StatusName">@item.StatusName</option>
+                                }
+                                <option selected="selected" value="not used">Не выбрано</option>
+
+                            </select>
+                        </div>
+                        <hr />
+                    </div>
+                    <div class="row" style="align-content:center">
+                        <div class="col-sm">
+                            <b>Категория:</b>
+                            <select name="[4]">
+                                @foreach (var item in ViewBag.Category.allCategories)
+                                {
+                                    <option value="@item.CategoryName">@item.CategoryName</option>
+                                }
+                                <option selected="selected" value="not used">Не выбрано</option>
+
+                            </select>
+                        </div>
+                        <hr />
+                        <div class="col-sm">
+                            <b>Оценка:</b>
+                            <select name="[5]">
+                                @foreach (var item in ViewBag.Rank.allRanks)
+                                {
+                                    <option value="@item.StarsAmount">@item.StarsAmount</option>
+                                }
+                                <option selected="selected" value="0">Не выбрано</option>
+
+                            </select>
+                        </div>
+                        <hr />
+                        <div class="col-sm">
+                            <b>Издатель:</b>
+                            <select name="[6]">
+                                @foreach (var item in ViewBag.Publisher.allPublishers)
+                                {
+                                    <option value="@item.PublisherName">@item.PublisherName</option>
+                                }
+                                <option selected="selected" value="not used">Не выбрано</option>
+
+                            </select>
+                        </div>
+                        <hr />
+                    </div>
+                    <div class="row" style="align-content:center">
+                        <div class="col-sm">
+                           
+                        </div>
+                        <div class="col-sm">
+                            <hr />
+                            <input type="submit" value="Применить" />
+
+                        </div>
+                        <div class="col-sm">
+                            
+                        </div>
+                    </div>
+                </div>
+            </form>
+            
+            
+
+        </div>
     </div>
     <div class="album py-5 bg-light">
         <div class="container">
 
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                @if (Model.Count() != 1)
+                @if (ViewBag.Mode!="byId")
                 {
                     @foreach (var book in Model.allBooks)
                     {
 
                         <div class="col-lg-4">
-                            <img src="@book.Img.ToString()" alt="Обложка книги" style="border-radius:50%; width:200px; height:200px">
+                            <img src="@book.Img.ToString()" alt="Обложка книги" style="border-radius:0%; width:150px; height:200px">
                             <h3>
 
                                 "@book.Name"
@@ -34,48 +134,51 @@
                 }
                 else
                 {
+                    
                     var book = Model.bookById;
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm">
 
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-sm">
+                                    <img src="@book.Img.ToString()" alt="Обложка книги" style="border-radius:50%; width:400px; height:400px">
+                                </div>
+                                <div class="col-sm">
+                                    <h3>
+                                        "@book.Name" @book.Author.AuthorName
+                                    </h3>
+                                    <h4>Описание: @book.Annotation</h4>
+                                    <form method="post" action="~/Books/Books/Save/@book.Id">
+                                        <h4>Оценка: <input name="rank" type="number" value="@book.Rank.StarsAmount" min="0" max="5" /> звезд</h4>
 
-                                <img src="@book.Img.ToString()" alt="Обложка книги" style="border-radius:50%; width:400px; height:400px">
-                            </div>
-                            <div class="col-sm">
-                                <h3>
-                                    "@book.Name" @book.Author.AuthorName
-                                </h3>
-                                <h4>Описание: @book.Annotation</h4>
-                                <form method="post" action="~/Books/Books/Save/@book.Id">
-                                    <h4>Оценка: <input name="rank" type="number" value="@book.Rank.StarsAmount" min="0" max="5" /> звезд</h4>
-
-                                    <h5>
-                                        Статус прочтения:
-                                        <select name="status">
-                                            @foreach (var item in ViewBag.Status.allStatuses)
-                                            {
-                                                if (book.Status.StatusName == item.StatusName)
+                                        <h5>
+                                            Статус прочтения:
+                                            <select name="status">
+                                                @foreach (var item in ViewBag.Status.allStatuses)
                                                 {
-                                                    <option selected="selected">@book.Status.StatusName</option>
+                                                    if (book.Status.StatusName == item.StatusName)
+                                                    {
+                                                        <option selected="selected" value="@book.Status.StatusName">@book.Status.StatusName</option>
 
-                                                }
-                                                else
-                                                {
-                                                    <option value="@item.StatusName">@item.StatusName</option>
+                                                    }
+                                                    else
+                                                    {
+                                                        <option value="@item.StatusName">@item.StatusName</option>
 
+                                                    }
                                                 }
-                                            }
-                                        </select>
-                                    </h5>
-                                    <h5 class="card-title pricing-card-title">@book.Price.ToString() р.<small class="text-muted fw-light"></small></h5>
-                                    <input type="submit" value="Сохранить изменения" />
-                                </form>
+                                            </select>
+                                        </h5>
+                                        <h5 class="card-title pricing-card-title">@book.Price.ToString() р.<small class="text-muted fw-light"></small></h5>
+                                        <input type="submit" value="Сохранить изменения" />
+                                    </form>
+                                </div>
+
                             </div>
 
                         </div>
+                    
 
-                    </div>
+
 
 
 

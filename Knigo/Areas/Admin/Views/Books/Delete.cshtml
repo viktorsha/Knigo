@@ -1,0 +1,80 @@
+﻿@model Knigo.Data.Models.BookShakunVA
+
+@{
+    ViewData["Title"] = "Удаление книги";
+}
+
+<h1>Удаление книги</h1>
+
+<h3>Вы уверены, что хотите удалить эту книгу?</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Название книги
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            Идентификатор автора
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Author.Id)
+        </dd class>
+        <dt class = "col-sm-2">
+            Идентификатор издательства
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Publisher.Id)
+        </dd class>
+        <dt class = "col-sm-2">
+            Год издания
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Year)
+        </dd>
+        <dt class = "col-sm-2">
+            Цена
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+        <dt class = "col-sm-2">
+             Идентификатор статуса прочтения
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Status.Id)
+        </dd class>
+        <dt class = "col-sm-2">
+            Аннотация
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Annotation)
+        </dd>
+        <dt class = "col-sm-2">
+            Идентификатор категории
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Category.Id)
+        </dd class>
+        <dt class = "col-sm-2">
+            Изображение
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Img)
+        </dd>
+        <dt class = "col-sm-2">
+            Оценка
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Rank.Id)
+        </dd class>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Удалить" class="btn btn-danger" /> |
+        <a asp-action="List">Назад</a>
+    </form>
+</div>

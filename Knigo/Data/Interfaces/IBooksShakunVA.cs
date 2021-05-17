@@ -17,5 +17,6 @@ namespace Knigo.Data.Interfaces
         public IEnumerable<BookShakunVA> GetBookOnPublisher(string publisher);
         public IEnumerable<BookShakunVA> GetBookOnAuthor(string author);
         public BookShakunVA GetObjectBook(int? bookId);
+        public IEnumerable<BookShakunVA> GetFilteredBook(string[] filterString);
     }
 }

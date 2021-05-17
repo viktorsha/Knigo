@@ -1,0 +1,34 @@
+﻿@model IEnumerable<Knigo.Data.Models.StatusShakunVA>
+
+@{
+    ViewData["Title"] = "Список статусов";
+}
+
+<h1>Список статусов</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Идентификатор
+            </th>
+            <th>
+                Название статуса прочтения
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StatusName)
+            </td>
+
+        </tr>
+}
+    </tbody>
+</table>

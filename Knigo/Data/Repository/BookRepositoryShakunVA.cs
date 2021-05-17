@@ -40,6 +40,16 @@ namespace Knigo.Data.Repository
         public IEnumerable<BookShakunVA> GetBooksOnStatus(string status) => appDBContent.Book.Where(b => b.Status.StatusName == status);
 
         public IEnumerable<BookShakunVA> GetBookByName(string search)=>appDBContent.Book.Where(b => b.Name.Contains(search) || b.Author.AuthorName.Contains(search)).Include(b => b.Category).Include(c => c.Author).Include(c => c.Publisher).Include(c => c.Rank).Include(c => c.Status);
-        
+
+        public IEnumerable<BookShakunVA> GetFilteredBook(string[] filterString)
+        {
+            if (!String.IsNullOrEmpty(filterString[0])&&!String.IsNullOrEmpty(filterString[1]))
+                return appDBContent.Book.Where(b => b.Price>=Convert.ToInt32(filterString[0])&&b.Price<=Convert.ToInt32(filterString[1])||b.Author.AuthorName.Contains(filterString[2]) || b.Status.StatusName.Contains(filterString[3]) || b.Category.CategoryName.Contains(filterString[4])
+                || b.Rank.StarsAmount == Convert.ToInt32(filterString[5]) || b.Publisher.PublisherName.Contains(filterString[6])).Include(b => b.Category).Include(c => c.Author).Include(c => c.Publisher).Include(c => c.Rank).Include(c => c.Status);
+            else
+                return appDBContent.Book.Where(b => b.Author.AuthorName.Contains(filterString[2]) || b.Status.StatusName.Contains(filterString[3])|| b.Category.CategoryName.Contains(filterString[4]) 
+                || b.Rank.StarsAmount==Convert.ToInt32(filterString[5]) || b.Publisher.PublisherName.Contains(filterString[6])).Include(b => b.Category).Include(c => c.Author).Include(c => c.Publisher).Include(c => c.Rank).Include(c => c.Status);
+
+        }
     }
 }

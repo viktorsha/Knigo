@@ -1,0 +1,40 @@
+﻿@model Knigo.Data.Models.AuthorShakunVA
+
+@{
+    ViewData["Title"] = "Редактирование автора";
+}
+
+<h1>Редактирование автора</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="AuthorName" class="control-label">Имя автора</label>
+                <input asp-for="AuthorName" class="form-control" />
+                <span asp-validation-for="AuthorName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AmountOfWrittenBooks" class="control-label">Количество написанных книг</label>
+                <input asp-for="AmountOfWrittenBooks" class="form-control" />
+                <span asp-validation-for="AmountOfWrittenBooks" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AuthorInfo" class="control-label">Информация об авторе</label>
+                <input asp-for="AuthorInfo" class="form-control" />
+                <span asp-validation-for="AuthorInfo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Сохранить изменения" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="List">Назад</a>
+</div>
+

@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Knigo.Data.Models.Category>
+
+@{
+    ViewData["Title"] = "Список категорий";
+}
+
+<h1>Список категорий</h1>
+
+<p>
+    <a asp-action="Create">Создать новую категорию</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Идентификатор
+            </th>
+            <th>
+                Имя категории
+            </th>
+            <th>
+                Описание категории
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoryName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoryDesc)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Редактировать</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Просмотреть детали</a> |
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

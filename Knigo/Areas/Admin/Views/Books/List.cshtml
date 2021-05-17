@@ -1,0 +1,89 @@
+﻿@model IEnumerable<Knigo.Data.Models.BookShakunVA>
+
+@{
+    ViewData["Title"] = "Управление книгами";
+}
+
+<h1>Управление книгами</h1>
+
+<p>
+    <a asp-action="Create">Добавить новую</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Название книги
+            </th>
+            <th>
+                Имя автора
+            </th>
+            <th>
+                Издатель
+            </th>
+            <th>
+                Год издания
+            </th>
+            <th>
+                Цена
+            </th>
+            <th>
+                Статус
+            </th>
+            <th>
+                Аннотация
+            </th>
+            <th>
+                Категория
+            </th>
+            <th>
+                Ссылка на изображение
+            </th>
+            <th>
+                Оценка
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Author.AuthorName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Publisher.PublisherName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Year)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status.StatusName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Annotation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category.CategoryName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Img)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rank.StarsAmount)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id" >Редактировать</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Детали</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id" >Удалить</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

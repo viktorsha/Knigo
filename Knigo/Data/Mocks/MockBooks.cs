@@ -103,5 +103,10 @@ namespace Knigo.Data.Mocks
         {
             throw new NotImplementedException();
         }
+
+        public IEnumerable<BookShakunVA> GetFilteredBook(string[] filterString)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Категории";
+}
+@{
+    int counter = 0;
+}
+<h1>Категории</h1>
+<link rel="stylesheet" href="~/css/style.css" />
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+
+    @foreach (var category in Model.allCategories)
+    {
+        counter++;
+        <div class="col-lg-4">
+            <input class="hide" id="hd-@counter" type="checkbox">
+            <label for="hd-@counter">@category.CategoryName</label>
+            <div>@category.CategoryDesc</div>
+        </div>
+
+
+    }
+
+</div>

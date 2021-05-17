@@ -1,0 +1,35 @@
+﻿@model Knigo.Data.Models.AuthorShakunVA
+
+@{
+    ViewData["Title"] = "Детали";
+}
+
+<h1>Об авторе</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Имя автора
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AuthorName)
+        </dd>
+        <dt class = "col-sm-2">
+            Количество написанных книг
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AmountOfWrittenBooks)
+        </dd>
+        <dt class = "col-sm-2">
+            Информация об авторе
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AuthorInfo)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Редактировать</a> |
+    <a asp-action="List">Назад</a>
+</div>

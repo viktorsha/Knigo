@@ -1,0 +1,78 @@
+﻿@model Knigo.Data.Models.BookShakunVA
+
+@{
+    ViewData["Title"] = "Детали";
+}
+
+<h1>Детали</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Название книги
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            Имя автора
+        </dt>
+        <dd class = "col-sm-10">
+            <a href="/Admin/Author/List">@Html.DisplayFor(model => model.Author.AuthorName)</a>
+            
+        </dd>
+        <dt class = "col-sm-2">
+            Издатель
+        </dt>
+        <dd class = "col-sm-10">
+            <a href="/Admin/Publishers/List">@Html.DisplayFor(model => model.Publisher.PublisherName)</a>
+</dd>
+        <dt class = "col-sm-2">
+            Год издания
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Year)
+        </dd>
+        <dt class = "col-sm-2">
+            Цена
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+        <dt class = "col-sm-2">
+            Статус прочтения
+        </dt>
+        <dd class = "col-sm-10">
+            <a href="/Admin/Status/List">@Html.DisplayFor(model => model.Status.StatusName)</a>
+</dd>
+        <dt class = "col-sm-2">
+            Аннотация
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Annotation)
+        </dd>
+        <dt class = "col-sm-2">
+            Категория
+        </dt>
+        <dd class = "col-sm-10">
+            <a href="/Admin/Categories/List">@Html.DisplayFor(model => model.Category.CategoryName)</a>
+        </dd>
+        <dt class = "col-sm-2">
+            Ссылка на обложку
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Img)
+        </dd>
+        <dt class = "col-sm-2">
+            Оценка
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Rank.StarsAmount)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Редактировать</a> |
+    <a asp-action="List">Назад</a>
+</div>

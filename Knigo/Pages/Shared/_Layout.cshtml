@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@inject SignInManager<IdentityUser> signInManager;
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -25,7 +26,15 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" href="/Books/Books/List">Каталог</a>
                         </li>
-                        
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="/Books/Category/List">Категории</a>
+                        </li>
+                        @if (signInManager.IsSignedIn(User)&& User.IsInRole("Admin"))
+            {
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="/Admin/Books/List">Управление</a>
+                    </li>
+            }
                     </ul>
                 </div>
             </div>

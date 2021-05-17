@@ -11,7 +11,7 @@ namespace Knigo.Data.Controllers
 {
     [Area("Books")]
     //[Route("Books/List")]
-    public class BooksControllerShakunVA: Controller
+    public class BooksController: Controller
     {
         private readonly IBooksShakunVA _books;
         private readonly IBooksCategoryShakunVA _booksCategory;
@@ -21,8 +21,12 @@ namespace Knigo.Data.Controllers
         private readonly IBooksStatusShakunVA _booksStatus;
         BooksListViewModelShakunVA obj = new BooksListViewModelShakunVA();
         StatusListViewModel stat = new StatusListViewModel();
+        AuthorListViewModel author = new AuthorListViewModel();
+        CategoryListViewModel category = new CategoryListViewModel();
+        RankListViewModel rank = new RankListViewModel();
+        PublisherListViewModel publisher = new PublisherListViewModel();
 
-        public BooksControllerShakunVA(IBooksShakunVA iBooks, IBooksCategoryShakunVA iBooksCategory, IBooksAuthorShakunVA iBooksAuthor, IBooksPublisherShakunVA iBooksPublisher, IBooksRankShakunVA iBooksRank, IBooksStatusShakunVA iBooksStatus)
+        public BooksController(IBooksShakunVA iBooks, IBooksCategoryShakunVA iBooksCategory, IBooksAuthorShakunVA iBooksAuthor, IBooksPublisherShakunVA iBooksPublisher, IBooksRankShakunVA iBooksRank, IBooksStatusShakunVA iBooksStatus)
         {
             _books = iBooks;
             _booksCategory = iBooksCategory;
@@ -31,22 +35,51 @@ namespace Knigo.Data.Controllers
             _booksRank = iBooksRank;
             _booksStatus = iBooksStatus;
         }
-
-        public ViewResult List(int? id)
+        [HttpGet]
+        public ViewResult List(int? id, string[] filterString)
         {
+
             stat.allStatuses = _booksStatus.GetStatuses.ToList();
+            author.allAuthors = _booksAuthor.GetAuthors.ToList();
+            category.allCategories = _booksCategory.GetCategories.ToList();
+            rank.allRanks = _booksRank.GetRanks.ToList();
+            publisher.allPublishers = _booksPublisher.GetPublishers.ToList();
             if (id!=null)
             {
                 obj.bookById = _books.GetObjectBook(id);
-                obj.currentCategory = "Книги";
+                if (obj.bookById!=null)
+                {
+                    ViewBag.Mode = "byId";
+                    obj.currentCategory = "Книги";
+                }
+                else
+                {
+                    return View("NotFound");
+                }
+                
             }
             else
             {
-                obj.allBooks = _books.Books;
+                if (filterString.Count()!=0)
+                {
+                    obj.allBooks = _books.GetFilteredBook(filterString);
+                    ViewBag.Mode = "byFilter";
+                }
+                else
+                {
+                    obj.allBooks = _books.Books;
+                    ViewBag.Mode = "all";
+
+                }
                 obj.currentCategory = "Книги";
             }
 
+
             ViewBag.Status = stat;
+            ViewBag.Author = author;
+            ViewBag.Category = category;
+            ViewBag.Rank = rank;
+            ViewBag.Publisher = publisher;
             return View(obj);
         }
         [HttpPost]
@@ -62,6 +95,6 @@ namespace Knigo.Data.Controllers
             obj.allBooks = _books.GetBookByName(search);
             return View(obj);
         }
-
+        
     }
 }

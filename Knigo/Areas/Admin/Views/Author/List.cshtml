@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Knigo.Data.Models.AuthorShakunVA>
+
+@{
+    ViewData["Title"] = "Список авторов";
+}
+
+<h1>Список авторов</h1>
+
+<p>
+    <a asp-action="Create">Добавить автора</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Идентификатор
+            </th>
+            <th>
+                Имя автора
+            </th>
+            <th>
+                Количество написанных книг
+            </th>
+            <th>
+                Информация об авторе
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AuthorName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AmountOfWrittenBooks)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AuthorInfo)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Редактировать</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Детали</a> |
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
